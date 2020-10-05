@@ -1,3 +1,5 @@
+# This managed policy allows Elastic Load Balancing load balancers to register and deregister Amazon ECS container instances on your behalf.
+
 resource "aws_iam_role" "ecs_service_role" {
   name               = "ecs_service_role"
   path               = "/"
