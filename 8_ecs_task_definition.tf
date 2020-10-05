@@ -1,6 +1,7 @@
 
 resource "aws_ecs_task_definition" "nginx_app" {
   family = var.task_definition["family"]
+  task_role_arn   = aws_iam_role.ecs_task_assume_role.arn
   container_definitions = <<DEFINITION
   [
     {
