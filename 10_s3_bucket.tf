@@ -42,7 +42,7 @@ resource "aws_iam_policy" "ecs_s3_policy" {
 # This attaches a iam policy to iam role
 
 resource "aws_iam_role_policy_attachment" "ecs_role_s3_ecs_bucket_policy_attach" {
-  role       = aws_iam_role.ecs_service_role.name
+  role       = aws_iam_role.ecs_task_assume_role.name
   policy_arn = aws_iam_policy.ecs_s3_policy.arn
 }
 
