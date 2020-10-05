@@ -1,6 +1,6 @@
 
 resource "aws_ecs_task_definition" "nginx_app" {
-  family = var.task_definition["family"]
+  family          = var.task_definition["family"]
   task_role_arn   = aws_iam_role.ecs_task_assume_role.arn
   container_definitions = <<DEFINITION
   [
@@ -13,6 +13,13 @@ resource "aws_ecs_task_definition" "nginx_app" {
           "containerPort": 80
         }
       ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": { 
+          "awslogs-group" : "/ecs/nginx-container",
+          "awslogs-region": "eu-west-1"
+        }
+      },
       "memory": ${var.task_definition["memory"]},
       "environment": [
         {
