@@ -1,3 +1,5 @@
+#This managed policy allows Amazon ECS container instances to make calls to AWS on your behalf
+
 resource "aws_iam_role" "ecs_instance_role" {
   name               = "ecs_instance_role"
   path               = "/"
